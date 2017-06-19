@@ -1,0 +1,11 @@
+
+#Information needed for login
+login:
+  #The API key for your bot
+  key: ""
+  #Other things will be added here if needed
+
+#Admin information
+admin:
+  owner: ""
+  commandPrefix: "&"
