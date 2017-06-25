@@ -1,2 +1,5 @@
 # Don't commit our tokens to github
 config.json
+
+# WHY
+__pycache__
