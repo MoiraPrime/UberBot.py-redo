@@ -25,9 +25,13 @@ class misc():
 
     @commands.command(pass_context=True)
     async def raffle(self, ctx):
-        members = ctx.message.server.members
-        choice = random.choice(members)
-        self.bot.say("I choose <@{}>".format(choice.id))
+        def choose_one():
+            members = self.bot.get_all_members()
+            choice = random.choice(members)
+            if choice.server.id != ctx.message.server.id:
+                return choose_one()
+            return choice
+        self.bot.say("I choose <@{}>".format(choose_one()))
 
 
 
