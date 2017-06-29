@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 
 class misc():
+    """Commands that don't fit into any other category"""
     def __init__(self, bot):
         self.bot = bot
 

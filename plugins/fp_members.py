@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 
-class fpmembers():
+class members():
+    """Commands related to the members of a server."""
     def __init__(self, bot):
         self.bot = bot
 
@@ -27,7 +28,7 @@ class fpmembers():
         await self.bot.say(template)
 
     @commands.command(pass_context=True)
-    async def joinedat(self, ctx, member: discord.Member = None):
+    async def joined(self, ctx, member: discord.Member = None):
         if ctx.message.channel.is_private:
             return
         if member is None:
@@ -39,4 +40,4 @@ class fpmembers():
 
 
 def setup(bot):
-    bot.add_cog(fpmembers(bot))
+    bot.add_cog(members(bot))
