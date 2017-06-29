@@ -25,13 +25,15 @@ async def on_message(message):
     await bot.process_commands(message)
 
     def format_message(message):
-        if message.server is None:
-            template = "[Private Message] <{}> {}"
-            return template.format(message.author.name, message.content)
         template = "[{}] #{} <{}> {}"
+        if message.server is None:
+            message.server.name = "Private Message"
+        if message.attachments:
+            for i in message.attachments:
+                template = template + " " + i.url
         return template.format(message.server.name, message.channel.name, message.author.name, message.content)
 
-    print( format_message(message) )
+    print(format_message(message))
 
 @bot.command()
 async def load(extension_name : str):
@@ -43,8 +45,10 @@ async def load(extension_name : str):
         bot.load_extension(extension_name)
     except (AttributeError, ImportError) as e:
         await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
+        print("Failed to load {}".format(extension_name))
         return
     await bot.say("{} loaded.".format(extension_name))
+    print("Loaded {}".format(extension_name))
 
 @bot.command()
 async def unload(extension_name : str):
@@ -54,6 +58,7 @@ async def unload(extension_name : str):
         return
     bot.unload_extension(extension_name)
     await bot.say("{} unloaded.".format(extension_name))
+    print("Unloaded {}".format(extension_name))
 
 @bot.command(pass_context=True)
 async def reboot(ctx):
@@ -61,6 +66,7 @@ async def reboot(ctx):
         await bot.say("You do not have permission to do that!")
         return
     await bot.say("Rebooting...")
+    print("Rebooting...")
     await bot.logout()
 
 @bot.command()
