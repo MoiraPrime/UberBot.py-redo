@@ -6,11 +6,18 @@ class fpmembers():
         self.bot = bot
 
     async def on_member_join(self, member):
-        if member.server != "149707514521321473":
+        if member.server.id != "149707514521321473":
             return
         template = "Everyone welcome <@{}> to the FirePowered Discord server! This brings our total number of members to {}."
         template = template.format(member.id, member.server.member_count)
-        await self.bot.say(template)
+        await self.bot.send_message(self.bot.get_channel("158357071815901184"), template)
+
+    async def on_member_remove(self, member):
+        if member.server.id != "149707514521321473":
+            return
+        template = "Aww! It looks like {} is no longer a member of our server. This brings our total number of members to {}."
+        template = template.format(member.name, member.server.member_count)
+        await self.bot.send_message(self.bot.get_channel("158357071815901184"), template)
 
     @commands.command(pass_context=True)
     async def members(self, ctx):
