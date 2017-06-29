@@ -36,6 +36,9 @@ async def on_message(message):
 @bot.command()
 async def load(extension_name : str):
     """Loads an extension."""
+    if ctx.message.author.id != global_config["admin"]["owner"]:
+        await bot.say("You do not have permission to do that!")
+        return
     try:
         bot.load_extension(extension_name)
     except (AttributeError, ImportError) as e:
@@ -46,6 +49,9 @@ async def load(extension_name : str):
 @bot.command()
 async def unload(extension_name : str):
     """Unloads an extension."""
+    if ctx.message.author.id != global_config["admin"]["owner"]:
+        await bot.say("You do not have permission to do that!")
+        return
     bot.unload_extension(extension_name)
     await bot.say("{} unloaded.".format(extension_name))
 
