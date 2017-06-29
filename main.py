@@ -31,7 +31,7 @@ async def on_message(message):
             server = message.server.name
         if message.attachments:
             for i in message.attachments:
-                template = template + " " + i.url
+                template = template + " " + i["url"]
         return template.format(server, message.channel.name, message.author.name, message.content)
 
     print(format_message(message))
