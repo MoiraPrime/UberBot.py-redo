@@ -5,7 +5,7 @@ description = '''WIP'''
 global_config = {}
 
 # this specifies what extensions to load when the bot starts up
-startup_extensions = ["members", "rng"]
+startup_extensions = ["plugins.fp_members", "plugins.rng"]
 
 bot = commands.Bot(command_prefix='&', description=description)
 

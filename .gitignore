@@ -3,3 +3,6 @@ config.json
 
 # WHY
 __pycache__
+
+# Permissions don't need to be pushed
+permisssions.json
