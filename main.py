@@ -26,12 +26,13 @@ async def on_message(message):
 
     def format_message(message):
         template = "[{}] #{} <{}> {}"
-        if message.server is None:
-            message.server.name = "Private Message"
+        server = "Private Message"
+        if message.server is not None:
+            server = message.server.name
         if message.attachments:
             for i in message.attachments:
                 template = template + " " + i.url
-        return template.format(message.server.name, message.channel.name, message.author.name, message.content)
+        return template.format(server, message.channel.name, message.author.name, message.content)
 
     print(format_message(message))
 
