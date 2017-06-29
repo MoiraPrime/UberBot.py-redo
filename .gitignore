@@ -6,3 +6,6 @@ __pycache__
 
 # Permissions don't need to be pushed
 permissions.json
+
+# Server stuff only
+start.sh

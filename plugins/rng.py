@@ -6,7 +6,7 @@ class RNG():
         self.bot = bot
 
     @commands.command()
-    async def roll(self, dice : str):
+    async def roll(self, dice : str = "1d6"):
         """Rolls a dice in NdN format."""
         try:
             rolls, limit = map(int, dice.split('d'))

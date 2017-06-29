@@ -48,6 +48,14 @@ async def unload(extension_name : str):
     bot.unload_extension(extension_name)
     await bot.say("{} unloaded.".format(extension_name))
 
+@bot.command(pass_context=True)
+async def reboot(ctx):
+    if ctx.message.author.id != global_config["admin"]["owner"]:
+        await bot.say("You do not have permission to do that!")
+        return
+    await bot.say("Rebooting...")
+    await bot.logout()
+
 '''@bot.command()
 async def add(left : int, right : int):
     """Adds two numbers together."""
