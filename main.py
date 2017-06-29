@@ -32,6 +32,8 @@ async def on_message(message):
         if message.attachments:
             for i in message.attachments:
                 template = template + " " + i["url"]
+        if message.content == "":
+            message.content = "((User did not send any text with this message.))"
         return template.format(server, message.channel.name, message.author.name, message.content)
 
     print(format_message(message))
