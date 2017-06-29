@@ -48,11 +48,11 @@ async def on_message(message):
                 # ...and append their URL to the end of the template message
                 template = template + " " + i["url"]
         # If the message content is empty (it's just an attachment with no text)
-        if message.content == "":
+        if message.clean_content == "":
             # Change the message.content to inform the chat log of such
-            message.content = "((User did not send any text with this message.))"
+            message.clean_content = "((User did not send any text with this message.))"
         # Return the template, pefectly formatted and ready to be printed.
-        return template.format(server, message.channel.name, message.author.name, message.content)
+        return template.format(server, message.channel.name, message.author.name, message.clean_content)
 
     # Print the perfectly formatted message.
     print(format_message(message))
