@@ -1,7 +1,8 @@
 from discord.ext import commands
 import json
 
-description = '''WIP'''
+description = '''UberBot is run by UberActivist#1085. It uses discord.py.
+The source can be found here: https://github.com/UberActivist/UberBot.py-redo'''
 global_config = {}
 
 # this specifies what extensions to load when the bot starts up
@@ -55,6 +56,10 @@ async def reboot(ctx):
         return
     await bot.say("Rebooting...")
     await bot.logout()
+
+@bot.command()
+async def info():
+    await bot.say(description)
 
 '''@bot.command()
 async def add(left : int, right : int):
