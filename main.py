@@ -3,6 +3,7 @@ import json
 
 description = '''UberBot is run by UberActivist#1085. It uses discord.py.
 The source can be found here: https://github.com/UberActivist/UberBot.py-redo'''
+
 global_config = {} # This dict is changed to the loaded json later...
 
 # this specifies what extensions to load when the bot starts up
