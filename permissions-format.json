@@ -1,0 +1,11 @@
+{
+    "admin":{
+        "serverid":[]
+    },
+    "mod":{
+        "serverid":[]
+    },
+    "banned":{
+        "serverid":[]
+    }
+}
