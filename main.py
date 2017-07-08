@@ -59,8 +59,8 @@ async def on_message(message):
     # Print the perfectly formatted message.
     print(format_message(message))
 
-@bot.command()
-async def load(extension_name : str):
+@bot.command(pass_context=True)
+async def load(ctx, extension_name : str,):
     """Loads an extension."""
     # If the message author isn't the owner of the bot
     if ctx.message.author.id != global_config["admin"]["owner"]:
@@ -78,8 +78,8 @@ async def load(extension_name : str):
     await bot.say("{} loaded.".format(extension_name))
     print("Loaded {}".format(extension_name))
 
-@bot.command()
-async def unload(extension_name : str):
+@bot.command(pass_context=True)
+async def unload(ctx, extension_name : str):
     """Unloads an extension."""
     # If the message author isn't the bot owner...
     if ctx.message.author.id != global_config["admin"]["owner"]:
