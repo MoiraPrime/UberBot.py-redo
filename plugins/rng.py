@@ -35,7 +35,15 @@ class RNG():
         "*pulls a name out of his infinite hat*",
         "*sigh* Alright.... time to pick someone.",
         "~~KILL ALL HUMANS~~ disregard that... lets see who the lucky choice is.",
-        "Welcome to the lottery. Fun fact: you all have a very insignificant chance of winning. GOOD LUCK!"
+        "Welcome to the lottery. Fun fact: you all have a very insignificant chance of winning. GOOD LUCK!",
+        "The following person shall be spared when robots eventually conquer the Earth...",
+        "Are you ready kids?",
+        "Random. Random never changes.",
+        "The following person must give up their life to lead the Undertale fandom.",
+        "The following person wishes to formally announce their candidacy for president.",
+        "The following person has such a spell of good luck that they've completely ran out, and will enjoy 9 years straight of bad luck.",
+        "The following person has been chosen as Jill Stein's future Vice President.",
+        "Who wants to be randomly chosen?"
         ]
         members = list(ctx.message.server.members)
         await self.bot.say("{}".format(random.choice(starting)))
