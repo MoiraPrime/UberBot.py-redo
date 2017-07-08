@@ -47,7 +47,7 @@ class RNG():
             return rand.id
         await self.bot.send_typing(ctx.message.channel)
         option = pick_one()
-        asyncio.sleep(2)
+        await asyncio.sleep(3)
         await self.bot.say("I choose <@{}>".format(option))
 
 
