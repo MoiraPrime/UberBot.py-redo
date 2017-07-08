@@ -27,7 +27,7 @@ class misc():
     async def raffle(self, ctx):
         members = ctx.message.server.members
         def choose_one():
-            rand = random.choice(members)
+            rand = random.choice(list(members))
             return rand
         self.bot.say("I choose <@{}>".format(choose_one().id))
 
