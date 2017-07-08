@@ -1,14 +1,16 @@
 import random
 from discord.ext import commands
 
+
 class RNG():
     """A couple random number generator commands"""
+
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def roll(self, dice : str = "1d6"):
-        """Rolls a dice in NdN format."""
+    async def roll(self, dice: str="1d6"):
+        """Rolls dice in NdN format."""
         try:
             rolls, limit = map(int, dice.split('d'))
         except Exception:
@@ -18,8 +20,8 @@ class RNG():
         result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
         await self.bot.say(result)
 
-    @commands.command(description='For when you wanna settle the score some other way')
-    async def choose(self, *choices : str):
+    @commands.command()
+    async def choose(self, *choices: str):
         """Chooses between multiple choices."""
         await self.bot.say(random.choice(choices))
 

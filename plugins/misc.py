@@ -23,15 +23,13 @@ class misc():
             return template.format(pickOne(start), pickOne(verb), pickOne(noun), pickOne(preposition), pickOne(noun))
         await self.bot.say(doList())
 
-    """@commands.command(pass_context=True)
+    @commands.command(pass_context=True)
     async def raffle(self, ctx):
         members = ctx.message.server.members
         def choose_one():
-            rand = random.randint(0, len(members))
-            for i in range(0, len(members)):
-                if i == rand:
-                    return members[i]
-        self.bot.say("I choose <@{}>".format(choose_one().id))"""
+            rand = random.choice(members)
+            return rand
+        self.bot.say("I choose <@{}>".format(choose_one().id))
 
 
 
