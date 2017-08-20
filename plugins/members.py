@@ -6,7 +6,7 @@ class members():
     def __init__(self, bot):
         self.bot = bot
 
-    async def on_member_join(self, member):
+    '''async def on_member_join(self, member):
         """When a member joins the FP server, announce it in #announcements"""
         if member.server.id != "149707514521321473":
             return
@@ -20,7 +20,7 @@ class members():
             return
         template = "Aww! It looks like {} is no longer a member of our server. This brings our total number of members to {}."
         template = template.format(member.name, member.server.member_count)
-        await self.bot.send_message(self.bot.get_channel("158357071815901184"), template)
+        await self.bot.send_message(self.bot.get_channel("158357071815901184"), template)'''
 
     @commands.command(pass_context=True)
     async def members(self, ctx):
