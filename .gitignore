@@ -9,3 +9,4 @@ permissions.json
 
 # Server stuff only
 start.sh
+server_data
