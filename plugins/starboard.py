@@ -15,13 +15,15 @@ class starboard():
         if reaction.message.channel.id in restricted:
             return
         for i in reaction.message.reactions:
-            if i.name == "x" and i.me:
+            if i.emoji.name == "x" and i.me:
+                return
+            if i.emoji.name == "white_check_mark" and i.me:
                 return
         if reaction.message.author.id == member.id:
             await self.bot.add_reaction(reaction.message, "❌")
             return
 
-        if reaction.count > 5 or reaction.count < 5:
+        if reaction.count < 3:
             return
 
         embed=discord.Embed(color=0xff8000, description=reaction.message.content)
@@ -32,6 +34,7 @@ class starboard():
         time = reaction.message.timestamp.time
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
         await client.send_message(client.get_channel('405135937912438804'), embed=embed)
+        await self.bot.add_reaction(reaction.message, "✅")
 
     @commands.command()
     async def choose2(self, *choices: str):
