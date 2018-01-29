@@ -9,7 +9,7 @@ global_config = {} # This dict is changed to the loaded json later...
 # this specifies what extensions to load when the bot starts up
 startup_extensions = ["plugins.members", "plugins.rng", "plugins.misc", "plugins.starboard"]
 
-bot = commands.Bot(command_prefix='&', description=description)
+bot = commands.Bot(command_prefix='&', description=description, max_messages=8000)
 
 # this loads the config file, converts the json to a dict, saves it globally, then closes the filestream
 with open("config.json") as config:
