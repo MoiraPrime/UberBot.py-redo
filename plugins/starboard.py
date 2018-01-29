@@ -23,7 +23,7 @@ class starboard():
             await self.bot.add_reaction(reaction.message, "❌")
             return
 
-        if reaction.count < 3:
+        if reaction.count > 2:
             return
 
         embed=discord.Embed(color=0xff8000, description=reaction.message.content)
