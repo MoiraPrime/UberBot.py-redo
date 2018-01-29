@@ -32,7 +32,7 @@ class starboard():
             embed.set_image(url=reaction.message.attachments[0].url)
         date = reaction.message.timestamp
         time = reaction.message.timestamp
-        embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
+        embed.set_footer(text="{}/{}/{} at {}:{} in #{}.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.name))
         await self.bot.send_message(self.bot.get_channel('405135937912438804'), "New Star!", embed=embed)
         await self.bot.add_reaction(reaction.message, "✅")
 
