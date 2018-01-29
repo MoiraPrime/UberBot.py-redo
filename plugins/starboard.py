@@ -15,14 +15,11 @@ async def starcheck(self, message, channel):
         return
     if reaction.message.channel.id in restricted:
         return
-    for i in reaction.message.reactions:
+    for i in message.reactions:
         if i.emoji == "❌" and i.me:
             return
         if i.emoji == "✅" and i.me:
             return
-    if reaction.message.author.id == member.id:
-        await self.bot.add_reaction(reaction.message, "❌")
-        return
 
     if reaction.count < 3:
         return
