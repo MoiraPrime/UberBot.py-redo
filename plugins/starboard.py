@@ -23,7 +23,7 @@ class starboard():
             await self.bot.add_reaction(reaction.message, "❌")
             return
 
-        if reaction.count > 2:
+        if reaction.count < 2:
             return
 
         embed=discord.Embed(color=0xff8000, description=reaction.message.content)
@@ -33,7 +33,7 @@ class starboard():
         date = reaction.message.timestamp
         time = reaction.message.timestamp
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
-        await client.send_message(client.get_channel('405135937912438804'), embed=embed)
+        await client.send_message(client.get_channel('405135937912438804'), "New Star!", embed=embed)
         await self.bot.add_reaction(reaction.message, "✅")
 
     @commands.command()
