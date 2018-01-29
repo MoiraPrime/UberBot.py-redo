@@ -25,7 +25,7 @@ class starboard():
             return
 
         embed=discord.Embed(color=0xff8000, description=reaction.message.content)
-        embed.set_author(name=reaction.message.author.name,, icon_url=reaction.message.author.avatar_url)
+        embed.set_author(name=reaction.message.author.name, icon_url=reaction.message.author.avatar_url)
         if len(reaction.message.attachments) > 0:
             embed.set_image(url=reaction.message.attachments[0].url)
         date = reaction.message.timestamp.date
