@@ -7,7 +7,7 @@ The source can be found here: https://github.com/UberActivist/UberBot.py-redo'''
 global_config = {} # This dict is changed to the loaded json later...
 
 # this specifies what extensions to load when the bot starts up
-startup_extensions = ["plugins.members", "plugins.rng", "plugins.misc"]
+startup_extensions = ["plugins.members", "plugins.rng", "plugins.misc", "plugins.starboard"]
 
 bot = commands.Bot(command_prefix='&', description=description)
 
