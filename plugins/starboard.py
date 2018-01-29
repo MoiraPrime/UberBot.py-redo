@@ -20,6 +20,9 @@ async def starcheck(self, message, channel):
             return
         if i.emoji == "✅" and i.me:
             return
+    if reaction.message.author.id == member.id:
+        await self.bot.add_reaction(reaction.message, "❌")
+        return
 
     if reaction.count < 3:
         return
