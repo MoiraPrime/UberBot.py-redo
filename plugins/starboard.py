@@ -31,7 +31,7 @@ class starboard():
         date = reaction.message.timestamp.date
         time = reaction.message.timestamp.time
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
-        await await client.send_message(client.get_channel('405135937912438804'), embed=embed)
+        await client.send_message(client.get_channel('405135937912438804'), embed=embed)
 
 
 def setup(bot):
