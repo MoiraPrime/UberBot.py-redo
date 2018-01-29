@@ -6,7 +6,7 @@ restricted = ["246758392411062272", "284903283770785792", "406279148932431872", 
 
 async def starcheck(self, message, channel):
     reaction = None
-    message = self.bot.get_channel(channel, message)
+    message = self.bot.get_message(channel, message)
     for i in message.reactions:
         if i.emoji == "⭐":
             reaction = i
