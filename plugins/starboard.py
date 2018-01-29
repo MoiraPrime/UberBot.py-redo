@@ -30,8 +30,8 @@ class starboard():
         embed.set_author(name=reaction.message.author.name, icon_url=reaction.message.author.avatar_url)
         if len(reaction.message.attachments) > 0:
             embed.set_image(url=reaction.message.attachments[0].url)
-        date = reaction.message.timestamp.date
-        time = reaction.message.timestamp.time
+        date = reaction.message.timestamp
+        time = reaction.message.timestamp
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
         await client.send_message(client.get_channel('405135937912438804'), embed=embed)
         await self.bot.add_reaction(reaction.message, "✅")
