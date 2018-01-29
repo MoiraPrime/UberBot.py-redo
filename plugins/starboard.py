@@ -33,7 +33,7 @@ class starboard():
         date = reaction.message.timestamp
         time = reaction.message.timestamp
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
-        await client.send_message(client.get_channel('405135937912438804'), "New Star!", embed=embed)
+        await self.bot.send_message(client.get_channel('405135937912438804'), "New Star!", embed=embed)
         await self.bot.add_reaction(reaction.message, "✅")
 
     @commands.command()
