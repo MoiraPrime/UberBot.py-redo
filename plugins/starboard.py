@@ -15,9 +15,9 @@ class starboard():
         if reaction.message.channel.id in restricted:
             return
         for i in reaction.message.reactions:
-            if i.emoji.name == "x" and i.me:
+            if i.emoji == "❌" and i.me:
                 return
-            if i.emoji.name == "white_check_mark" and i.me:
+            if i.emoji == "✅" and i.me:
                 return
         if reaction.message.author.id == member.id:
             await self.bot.add_reaction(reaction.message, "❌")
