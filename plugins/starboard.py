@@ -18,7 +18,7 @@ class starboard():
             if i.name == "x" and i.me:
                 return
         if reaction.message.author.id == member.id:
-            async self.bot.add_reaction(reaction.message, "❌")
+            await self.bot.add_reaction(reaction.message, "❌")
             return
 
         if reaction.count > 5 or reaction.count < 5:
@@ -32,6 +32,11 @@ class starboard():
         time = reaction.message.timestamp.time
         embed.set_footer(text="{}/{}/{} at {}:{} in <#{}>.".format(date.month, date.day, date.year, time.hour, time.minute, reaction.message.channel.id))
         await client.send_message(client.get_channel('405135937912438804'), embed=embed)
+
+    @commands.command()
+    async def choose2(self, *choices: str):
+        """Chooses between multiple choices."""
+        await self.bot.say(random.choice(choices))
 
 
 def setup(bot):
